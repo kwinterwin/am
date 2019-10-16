@@ -1,0 +1,61 @@
+header {
+  background-color: #ededed; }
+  header h1 {
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300; }
+
+main {
+  color: #515151;
+  display: flex; }
+  main > section {
+    padding: 0 15px; }
+  main h3 {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #515151;
+    margin: 10px 0; }
+  main section {
+    flex-basis: 50%; }
+  main .action-with-list {
+    margin-bottom: 30px;
+    width: 100%; }
+    main .action-with-list div {
+      padding: 5px 0px;
+      margin-bottom: 10px; }
+      main .action-with-list div p {
+        display: inline-block;
+        padding: 0;
+        margin: 0; }
+      main .action-with-list div button {
+        float: right;
+        background-color: #3bb0c9;
+        border: none;
+        padding: 5px 30px;
+        color: white; }
+  main .tbl-content {
+    height: 300px;
+    overflow-x: auto;
+    margin-top: 0px; }
+  main table {
+    width: 100%;
+    table-layout: fixed; }
+    main table th {
+      padding: 10px 0;
+      text-align: left;
+      font-weight: 500;
+      font-size: 12px;
+      color: #515151;
+      border-bottom: 1px solid #515151; }
+    main table td {
+      padding: 10px 0;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 12px;
+      color: #515151;
+      border-bottom: 1px solid #515151; }
