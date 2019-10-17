@@ -1,5 +1,5 @@
 <section class="list-table">
-    <h3>Shared whitelist</h3>
+    <h3>Shared {{$ctrl.color}}list</h3>
     <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
@@ -7,7 +7,7 @@
                     <th>Name</th>
                     <th>Type</th>
                     <th>Created By</th>
-                    <th>Created On</th>
+                    <th ng-click="$ctrl.sortDateColumn()" class="th-c-p"><span>Created On</span><span id="triangle-down"></span></th>
                 </tr>
             </thead>
         </table>
@@ -15,11 +15,11 @@
     <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
             <tbody>
-                <tr ng-repeat="item in tablesData">
+                <tr ng-repeat="item in $ctrl.tablesData">
                     <td>{{item.Name}}</td>
-                    <td>{{item.Type}}</td>
+                    <td>{{$ctrl.types[item.Type]}}</td>
                     <td>{{item.CreatedByUserName}}</td>
-                    <td>{{item.CreatedOn}}</td>
+                    <td>{{$ctrl.setCreatedOnDate(item.CreatedOn)}}</td>
                 </tr>
             </tbody>
         </table>

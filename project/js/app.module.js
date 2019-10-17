@@ -1,4 +1,5 @@
 angular.module("MainModule", [
     "appDefaultAction",
-    "appTableComponent"
+    "appTableComponent",
+    "appTotalListComponent"
 ]);

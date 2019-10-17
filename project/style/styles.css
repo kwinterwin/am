@@ -1,5 +1,16 @@
+#triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid #828282;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle; }
+
 header {
-  background-color: #ededed; }
+  background-color: #ededed;
+  color: #515151; }
   header h1 {
     padding: 10px 15px;
     margin: 0;
@@ -9,6 +20,8 @@ header {
 main {
   color: #515151;
   display: flex; }
+  main app-total-list-component {
+    padding: 15px; }
   main > section {
     padding: 0 15px; }
   main h3 {
@@ -26,17 +39,18 @@ main {
     width: 100%; }
     main .action-with-list div {
       padding: 5px 0px;
-      margin-bottom: 10px; }
+      display: flex;
+      justify-content: space-between; }
       main .action-with-list div p {
-        display: inline-block;
         padding: 0;
         margin: 0; }
       main .action-with-list div button {
-        float: right;
         background-color: #3bb0c9;
+        display: block;
         border: none;
         padding: 5px 30px;
-        color: white; }
+        color: white;
+        font-size: 13px; }
   main .tbl-content {
     height: 300px;
     overflow-x: auto;
@@ -49,13 +63,14 @@ main {
       text-align: left;
       font-weight: 500;
       font-size: 12px;
-      color: #515151;
+      color: #828282;
       border-bottom: 1px solid #515151; }
     main table td {
       padding: 10px 0;
       text-align: left;
       vertical-align: middle;
-      font-weight: 300;
       font-size: 12px;
       color: #515151;
       border-bottom: 1px solid #515151; }
+    main table .th-c-p:hover {
+      cursor: pointer; }

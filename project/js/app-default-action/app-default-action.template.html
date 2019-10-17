@@ -1,11 +1,7 @@
 <section class="action-with-list">
-    <h3>Default whitelist</h3>
-    <div>
-        <p>No default Domain whitelist set</p>
-        <button>Add Domain Whitelist</button>
-    </div>
-    <div>
-        <p>No default Bundle whitelist set</p>
-        <button>Add Bundle Whitelist</button>
+    <h3>Default {{$ctrl.color}}list</h3>
+    <div ng-repeat="type in $ctrl.types">
+        <p>No default {{type + " " + $ctrl.firstLetterCaps($ctrl.color)}}list set</p>
+        <button>Add {{type + " " + $ctrl.firstLetterCaps($ctrl.color)}}list</button>
     </div>
 </section>
