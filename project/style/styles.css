@@ -52,7 +52,7 @@ main {
         color: white;
         font-size: 13px; }
   main .tbl-content {
-    height: 300px;
+    height: 500px;
     overflow-x: auto;
     margin-top: 0px; }
   main table {
@@ -69,6 +69,7 @@ main {
       padding: 10px 0;
       text-align: left;
       vertical-align: middle;
+      font-weight: 300;
       font-size: 12px;
       color: #515151;
       border-bottom: 1px solid #515151; }

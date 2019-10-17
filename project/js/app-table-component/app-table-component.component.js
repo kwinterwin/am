@@ -7,14 +7,20 @@ angular
                 const dataProperty = this.color + "listData";
                 this.tablesData = response.data[dataProperty];
             });
+            const millisecondsRegexp = /\d+/gi;
 
             this.setCreatedOnDate = (stringDate) => {
-                const date = eval(stringDate.replace(/\//gi, ""));
+                const date = (Number(stringDate.match(millisecondsRegexp)[0]));
                 return date;
             };
 
-            this.sortDateColumn = ()=>{
-                debugger
+            this.sortDateColumn = () => {
+                this.tablesData.sort((a, b) => {
+                    // const millisecondsRegexp = /\d+/gi;
+                    const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
+                    const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
+                    return bCreatedOn - aCreatedOn;
+                });
             }
         },
         bindings: {
