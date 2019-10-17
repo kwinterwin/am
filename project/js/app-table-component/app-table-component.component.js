@@ -6,8 +6,21 @@ angular
             dataService.getData().then((response) => {
                 const dataProperty = this.color + "listData";
                 this.tablesData = response.data[dataProperty];
+                this.listTotals = response.data[this.color + "listTotals"];
+                this.pageCount = Math.ceil(Number(this.listTotals) / this.tablesData.length);
+                this.pageArray = getPageArray(this.pageCount);
+                debugger
             });
+
             const millisecondsRegexp = /\d+/gi;
+
+            const getPageArray = function (count) {
+                const array = [];
+                for (let i = 1; i < count; i++) {
+                    array.push(i);
+                }
+                return array;
+            }
 
             this.setCreatedOnDate = (stringDate) => {
                 const date = new Date(Number(stringDate.match(millisecondsRegexp)[0]));

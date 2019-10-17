@@ -2,10 +2,10 @@ $text-color: #515151;
 $blue-color: #3bb0c9;
 
 #triangle-down {
-	width: 0;
-	height: 0;
-	border-left: 3px solid transparent;
-	border-right: 3px solid transparent;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
   border-top: 3px solid #828282;
   display: inline-block;
   margin-left: 5px;
@@ -26,8 +26,8 @@ header {
 main {
   color: $text-color;
   display: flex;
-  app-total-list-component{
-    padding:15px;
+  app-total-list-component {
+    padding: 15px;
   }
   > section {
     padding: 0 15px;
@@ -45,7 +45,7 @@ main {
     flex-basis: 50%;
   }
   .action-with-list {
-    margin-bottom:30px;
+    margin-bottom: 30px;
     width: 100%;
     div {
       padding: 5px 0px;
@@ -61,12 +61,12 @@ main {
         border: none;
         padding: 5px 30px;
         color: white;
-        font-size:13px;
+        font-size: 13px;
       }
     }
   }
   .tbl-content {
-    height: 500px;
+    height: 450px;
     overflow-x: auto;
     margin-top: 0px;
   }
@@ -90,8 +90,27 @@ main {
       color: $text-color;
       border-bottom: 1px solid $text-color;
     }
-    .th-c-p:hover{
+    .th-c-p:hover {
       cursor: pointer;
+    }
+  }
+  .tbl-paging {
+    box-sizing: border-box;
+    margin-top:10px;
+    span {
+      /* background-color:blue; */
+      // border: 1px solid black;
+      padding: 5px;
+      display: inline-block;
+      margin-left: 5px;
+      font-size: 10px;
+    }
+    .selected-page {
+      background-color: aqua;
+    }
+    span:hover {
+      cursor: pointer;
+      background-color: darkgrey;
     }
   }
 }

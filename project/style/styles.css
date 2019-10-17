@@ -52,7 +52,7 @@ main {
         color: white;
         font-size: 13px; }
   main .tbl-content {
-    height: 500px;
+    height: 450px;
     overflow-x: auto;
     margin-top: 0px; }
   main table {
@@ -75,3 +75,17 @@ main {
       border-bottom: 1px solid #515151; }
     main table .th-c-p:hover {
       cursor: pointer; }
+  main .tbl-paging {
+    box-sizing: border-box;
+    margin-top: 10px; }
+    main .tbl-paging span {
+      /* background-color:blue; */
+      padding: 5px;
+      display: inline-block;
+      margin-left: 5px;
+      font-size: 10px; }
+    main .tbl-paging .selected-page {
+      background-color: aqua; }
+    main .tbl-paging span:hover {
+      cursor: pointer;
+      background-color: darkgrey; }

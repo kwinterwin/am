@@ -7,7 +7,8 @@
                     <th>Name</th>
                     <th>Type</th>
                     <th>Created By</th>
-                    <th ng-click="$ctrl.sortDateColumn()" class="th-c-p"><span>Created On</span><span id="triangle-down"></span></th>
+                    <th ng-click="$ctrl.sortDateColumn()" class="th-c-p"><span>Created On</span><span
+                            id="triangle-down"></span></th>
                 </tr>
             </thead>
         </table>
@@ -23,5 +24,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="tbl-paging">
+        <span ng-repeat="pageNumber in $ctrl.pageArray">
+            {{pageNumber}}
+        </span>
+        <!-- <span class="selected-page">1</span> -->
     </div>
 </section>
