@@ -1,1 +1,4 @@
-angular.module("MainModule", ["appDefaultAction", "appTableComponent"]);
+angular.module("MainModule", [
+    "appDefaultAction",
+    "appTableComponent"
+]);

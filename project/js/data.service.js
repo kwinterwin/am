@@ -1,11 +1,12 @@
 angular
     .module("MainModule")
-    .service('dataService', function ($http, $rootScope) {
-        $http({
-            method: 'GET',
-            url: 'http://localhost:3000/data'
-        }).then((response) => {
-            // debugger
-            $rootScope.data = response.data;
-        });
+    .factory('dataService', function ($http, $rootScope) {
+        return {
+            getData: function () {
+                return $http({
+                    method: 'GET',
+                    url: 'http://localhost:3000/data'
+                });
+            }
+        }
     });
