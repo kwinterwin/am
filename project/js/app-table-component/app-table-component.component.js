@@ -10,17 +10,32 @@ angular
             const millisecondsRegexp = /\d+/gi;
 
             this.setCreatedOnDate = (stringDate) => {
-                const date = (Number(stringDate.match(millisecondsRegexp)[0]));
-                return date;
+                const date = new Date(Number(stringDate.match(millisecondsRegexp)[0]));
+                return date.getUTCFullYear() + "/" + (date.getUTCMonth() + 1) + "/"
+                    + date.getUTCDate() + " " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds();
+
+                // TODO: added date format like page.jpg
             };
 
+            this.nextSortAction = "asc";
+
             this.sortDateColumn = () => {
-                this.tablesData.sort((a, b) => {
-                    // const millisecondsRegexp = /\d+/gi;
-                    const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
-                    const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
-                    return bCreatedOn - aCreatedOn;
-                });
+                if (this.nextSortAction === "asc") {
+                    this.nextSortAction = "desc";
+                    this.tablesData.sort((a, b) => {
+                        const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
+                        const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
+                        return aCreatedOn - bCreatedOn;
+                    });
+                }
+                else {
+                    this.nextSortAction = "asc";
+                    this.tablesData.sort((a, b) => {
+                        const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
+                        const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
+                        return bCreatedOn - aCreatedOn;
+                    });
+                }
             }
         },
         bindings: {
