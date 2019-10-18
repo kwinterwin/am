@@ -23,7 +23,8 @@ main {
   main app-total-list-component {
     padding: 15px; }
   main > section {
-    padding: 0 15px; }
+    padding: 0 15px;
+    flex-basis: 50%; }
   main h3 {
     padding: 0;
     margin: 0;
@@ -32,8 +33,6 @@ main {
     text-transform: uppercase;
     border-bottom: 1px solid #515151;
     margin: 10px 0; }
-  main section {
-    flex-basis: 50%; }
   main .action-with-list {
     margin-bottom: 30px;
     width: 100%; }
@@ -77,15 +76,22 @@ main {
       cursor: pointer; }
   main .tbl-paging {
     box-sizing: border-box;
-    margin-top: 10px; }
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 12px; }
+    main .tbl-paging section {
+      display: inline-block; }
+      main .tbl-paging section > span {
+        margin-left: 5px;
+        font-size: 10px;
+        padding: 0px; }
+      main .tbl-paging section > span:hover {
+        cursor: pointer;
+        background-color: #ededed; }
     main .tbl-paging span {
-      /* background-color:blue; */
-      padding: 5px;
       display: inline-block;
-      margin-left: 5px;
-      font-size: 10px; }
+      padding: 5px; }
     main .tbl-paging .selected-page {
-      background-color: aqua; }
-    main .tbl-paging span:hover {
-      cursor: pointer;
-      background-color: darkgrey; }
+      background-color: #3bb0c9;
+      color: white; }

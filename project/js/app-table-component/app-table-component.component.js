@@ -7,16 +7,17 @@ angular
                 const dataProperty = this.color + "listData";
                 this.tablesData = response.data[dataProperty];
                 this.listTotals = response.data[this.color + "listTotals"];
-                this.pageCount = Math.ceil(Number(this.listTotals) / this.tablesData.length);
+                this.pageDataCount = this.tablesData.length;
+                this.pageCount = Math.ceil(Number(this.listTotals) / this.pageDataCount);
                 this.pageArray = getPageArray(this.pageCount);
-                debugger
+                this.presentPage = this.pageArray[0];
             });
 
             const millisecondsRegexp = /\d+/gi;
 
             const getPageArray = function (count) {
                 const array = [];
-                for (let i = 1; i < count; i++) {
+                for (let i = 1; i <= count; i++) {
                     array.push(i);
                 }
                 return array;
@@ -28,6 +29,15 @@ angular
                     + date.getUTCDate() + " " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds();
 
                 // TODO: added date format like page.jpg
+            };
+
+            this.switchPage = function(obj){
+                this.presentPage = obj.pageNumber;
+            };
+
+            this.getPageInfo = function () {
+                const lastPageItemIndex = this.presentPage * this.pageDataCount;
+                return (lastPageItemIndex - this.pageDataCount + 1) + "-" + (lastPageItemIndex > this.listTotals ? this.listTotals : lastPageItemIndex) + " of " + this.listTotals;
             };
 
             this.nextSortAction = "asc";

@@ -2,115 +2,140 @@ $text-color: #515151;
 $blue-color: #3bb0c9;
 
 #triangle-down {
-  width: 0;
-  height: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid #828282;
-  display: inline-block;
-  margin-left: 5px;
+  width         : 0;
+  height        : 0;
+  border-left   : 3px solid transparent;
+  border-right  : 3px solid transparent;
+  border-top    : 3px solid #828282;
+  display       : inline-block;
+  margin-left   : 5px;
   vertical-align: middle;
 }
 
 header {
   background-color: #ededed;
-  color: $text-color;
+  color           : $text-color;
+
   h1 {
-    padding: 10px 15px;
-    margin: 0;
-    font-size: 20px;
+    padding    : 10px 15px;
+    margin     : 0;
+    font-size  : 20px;
     font-weight: 300;
   }
 }
 
 main {
-  color: $text-color;
+  color  : $text-color;
   display: flex;
+
   app-total-list-component {
     padding: 15px;
   }
-  > section {
-    padding: 0 15px;
-  }
-  h3 {
-    padding: 0;
-    margin: 0;
-    font-weight: 400;
-    font-size: 15px;
-    text-transform: uppercase;
-    border-bottom: 1px solid $text-color;
-    margin: 10px 0;
-  }
-  section {
+
+  >section {
+    padding   : 0 15px;
     flex-basis: 50%;
   }
+
+  h3 {
+    padding       : 0;
+    margin        : 0;
+    font-weight   : 400;
+    font-size     : 15px;
+    text-transform: uppercase;
+    border-bottom : 1px solid $text-color;
+    margin        : 10px 0;
+  }
+
   .action-with-list {
     margin-bottom: 30px;
-    width: 100%;
+    width        : 100%;
+
     div {
-      padding: 5px 0px;
-      display: flex;
+      padding        : 5px 0px;
+      display        : flex;
       justify-content: space-between;
+
       p {
         padding: 0;
-        margin: 0;
+        margin : 0;
       }
+
       button {
         background-color: $blue-color;
-        display: block;
-        border: none;
-        padding: 5px 30px;
-        color: white;
-        font-size: 13px;
+        display         : block;
+        border          : none;
+        padding         : 5px 30px;
+        color           : white;
+        font-size       : 13px;
       }
     }
   }
+
   .tbl-content {
-    height: 450px;
+    height    : 450px;
     overflow-x: auto;
     margin-top: 0px;
   }
+
   table {
-    width: 100%;
+    width       : 100%;
     table-layout: fixed;
+
     th {
-      padding: 10px 0;
-      text-align: left;
-      font-weight: 500;
-      font-size: 12px;
-      color: #828282;
+      padding      : 10px 0;
+      text-align   : left;
+      font-weight  : 500;
+      font-size    : 12px;
+      color        : #828282;
       border-bottom: 1px solid $text-color;
     }
+
     td {
-      padding: 10px 0;
-      text-align: left;
+      padding       : 10px 0;
+      text-align    : left;
       vertical-align: middle;
-      font-weight: 300;
-      font-size: 12px;
-      color: $text-color;
-      border-bottom: 1px solid $text-color;
+      font-weight   : 300;
+      font-size     : 12px;
+      color         : $text-color;
+      border-bottom : 1px solid $text-color;
     }
+
     .th-c-p:hover {
       cursor: pointer;
     }
   }
+
   .tbl-paging {
-    box-sizing: border-box;
-    margin-top:10px;
-    span {
-      /* background-color:blue; */
-      // border: 1px solid black;
-      padding: 5px;
+    box-sizing     : border-box;
+    display        : flex;
+    justify-content: space-between;
+    margin-top     : 10px;
+    font-size      : 12px;
+
+    section {
       display: inline-block;
-      margin-left: 5px;
-      font-size: 10px;
+
+      >span {
+        margin-left: 5px;
+        font-size  : 10px;
+        padding    : 0px;
+      }
+
+      >span:hover {
+        cursor          : pointer;
+        background-color: #ededed;
+      }
     }
+
+    span {
+      display: inline-block;
+      padding: 5px;
+    }
+
     .selected-page {
-      background-color: aqua;
-    }
-    span:hover {
-      cursor: pointer;
-      background-color: darkgrey;
+      background-color: $blue-color;
+      color           : white;
     }
   }
 }

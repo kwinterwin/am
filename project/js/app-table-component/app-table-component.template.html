@@ -26,9 +26,15 @@
         </table>
     </div>
     <div class="tbl-paging">
-        <span ng-repeat="pageNumber in $ctrl.pageArray">
-            {{pageNumber}}
-        </span>
+        <section>
+            <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)">
+                 <span ng-if="pageNumber === $ctrl.presentPage" class="selected-page">{{pageNumber}}</span>
+                 <span ng-if="pageNumber !== $ctrl.presentPage">{{pageNumber}}</span>
+            </span>
+        </section>
+        <section>
+            {{$ctrl.getPageInfo()}}
+        </section>
         <!-- <span class="selected-page">1</span> -->
     </div>
 </section>
