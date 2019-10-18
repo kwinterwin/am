@@ -9,6 +9,6 @@ angular
             };
         },
         bindings: {
-            listColor: "="
+            listColor: "<"
         }
     });

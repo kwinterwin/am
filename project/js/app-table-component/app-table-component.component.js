@@ -58,6 +58,10 @@ angular
 
             this.switchPage = function (obj) {
                 this.presentPage = obj.pageNumber;
+                dataService.getData({ totalCount: this.listTotals, startIndex: (this.presentPage - 1) * this.pageDataCount + 1 }).then((response) => {
+                    const dataProperty = this.color + "listData";
+                    this.tablesData = response.data[dataProperty];
+                });
             };
 
             this.getPageInfo = function () {

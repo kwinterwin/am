@@ -6,8 +6,7 @@
                 <tr>
                     <th ng-repeat="column in $ctrl.tableColumns" ng-click="$ctrl.sort(this)">
                         <span>{{column.header}}</span>
-                        <span ng-if="$last"
-                            id="triangle-down"></span>
+                        <span ng-if="$last" id="triangle-down"></span>
                     </th>
                 </tr>
             </thead>
@@ -25,19 +24,13 @@
             </tbody>
         </table>
     </div>
-    <!-- ng-class="$odd ? 'odd' : 'even'" -->
     <div class="tbl-paging">
         <section>
-            <!-- <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)">
-                 <span ng-if="pageNumber === $ctrl.presentPage" class="selected-page">{{pageNumber}}</span>
-                 <span ng-if="pageNumber !== $ctrl.presentPage">{{pageNumber}}</span>
-            </span> -->
             <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)"
                 ng-class="pageNumber === $ctrl.presentPage ? 'selected-page': ''">{{pageNumber}}</span>
         </section>
         <section>
             {{$ctrl.getPageInfo()}}
         </section>
-        <!-- <span class="selected-page">1</span> -->
     </div>
 </section>

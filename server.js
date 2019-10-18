@@ -10,6 +10,7 @@ app.use(express.static("./node_modules/angular"));
 app.get("/data", getFileData);
 
 function getFileData(req, res) {
+    console.log(req.query);
     fs.readFile("./files/data.txt", "utf8", (error, data) => {
         res.send(data);
     });
