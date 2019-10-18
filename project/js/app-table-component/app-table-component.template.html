@@ -4,11 +4,11 @@
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Created By</th>
-                    <th ng-click="$ctrl.sortDateColumn()" class="th-c-p"><span>Created On</span><span
-                            id="triangle-down"></span></th>
+                    <th ng-repeat="column in $ctrl.tableColumns" ng-click="$ctrl.sort(this)">
+                        <span>{{column.header}}</span>
+                        <span ng-if="$last"
+                            id="triangle-down"></span>
+                    </th>
                 </tr>
             </thead>
         </table>
@@ -25,12 +25,15 @@
             </tbody>
         </table>
     </div>
+    <!-- ng-class="$odd ? 'odd' : 'even'" -->
     <div class="tbl-paging">
         <section>
-            <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)">
+            <!-- <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)">
                  <span ng-if="pageNumber === $ctrl.presentPage" class="selected-page">{{pageNumber}}</span>
                  <span ng-if="pageNumber !== $ctrl.presentPage">{{pageNumber}}</span>
-            </span>
+            </span> -->
+            <span ng-repeat="pageNumber in $ctrl.pageArray" ng-click="$ctrl.switchPage(this)"
+                ng-class="pageNumber === $ctrl.presentPage ? 'selected-page': ''">{{pageNumber}}</span>
         </section>
         <section>
             {{$ctrl.getPageInfo()}}

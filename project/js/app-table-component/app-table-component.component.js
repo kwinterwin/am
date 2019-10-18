@@ -8,10 +8,37 @@ angular
                 this.tablesData = response.data[dataProperty];
                 this.listTotals = response.data[this.color + "listTotals"];
                 this.pageDataCount = this.tablesData.length;
-                this.pageCount = Math.ceil(Number(this.listTotals) / this.pageDataCount);
-                this.pageArray = getPageArray(this.pageCount);
+                const pageCount = Math.ceil(Number(this.listTotals) / this.pageDataCount);
+                this.pageArray = getPageArray(pageCount);
                 this.presentPage = this.pageArray[0];
             });
+
+            this.tableColumns = {
+                "Name": {
+                    header: "Name",
+                    key: "Name",
+                    nextSortAction: "asc",
+                    type: "string"
+                },
+                "Type": {
+                    header: "Type",
+                    key: "Type",
+                    nextSortAction: "asc",
+                    type: "string"
+                },
+                "CreatedByUserName": {
+                    header: "Created By",
+                    key: "CreatedByUserName",
+                    nextSortAction: "asc",
+                    type: "string"
+                },
+                "CreatedOn": {
+                    header: "Created On",
+                    key: "CreatedOn",
+                    nextSortAction: "asc",
+                    type: "date"
+                }
+            };
 
             const millisecondsRegexp = /\d+/gi;
 
@@ -27,11 +54,9 @@ angular
                 const date = new Date(Number(stringDate.match(millisecondsRegexp)[0]));
                 return date.getUTCFullYear() + "/" + (date.getUTCMonth() + 1) + "/"
                     + date.getUTCDate() + " " + date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds();
-
-                // TODO: added date format like page.jpg
             };
 
-            this.switchPage = function(obj){
+            this.switchPage = function (obj) {
                 this.presentPage = obj.pageNumber;
             };
 
@@ -40,24 +65,39 @@ angular
                 return (lastPageItemIndex - this.pageDataCount + 1) + "-" + (lastPageItemIndex > this.listTotals ? this.listTotals : lastPageItemIndex) + " of " + this.listTotals;
             };
 
-            this.nextSortAction = "asc";
-
-            this.sortDateColumn = () => {
-                if (this.nextSortAction === "asc") {
-                    this.nextSortAction = "desc";
-                    this.tablesData.sort((a, b) => {
-                        const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
-                        const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
-                        return aCreatedOn - bCreatedOn;
-                    });
+            this.sort = function (obj) {
+                const columnInformation = obj.column;
+                if (columnInformation.type === "string") {
+                    this.tablesData.sort((a, b) => { return stringComparator.bind(null, a, b, columnInformation.key)() });
+                    if (columnInformation.nextSortAction === "desc") {
+                        this.tablesData.reverse();
+                    }
                 }
                 else {
-                    this.nextSortAction = "asc";
                     this.tablesData.sort((a, b) => {
-                        const aCreatedOn = Number(a.CreatedOn.match(millisecondsRegexp)[0]);
-                        const bCreatedOn = Number(b.CreatedOn.match(millisecondsRegexp)[0]);
-                        return bCreatedOn - aCreatedOn;
+                        return dateComparator.bind(null, Number(a[columnInformation.key].match(millisecondsRegexp)[0]),
+                            Number(b[columnInformation.key].match(millisecondsRegexp)[0]), columnInformation.nextSortAction)()
                     });
+                }
+                if (columnInformation.nextSortAction === "asc") {
+                    this.tableColumns[columnInformation.key].nextSortAction = "desc";
+                }
+                else {
+                    this.tableColumns[columnInformation.key].nextSortAction = "asc";
+                }
+            };
+
+            const stringComparator = (prev, next, key) => {
+                if (prev[key] < next[key]) return -1;
+                if (prev[key] < next[key]) return 1;
+            };
+
+            const dateComparator = (a, b, nextSortAction) => {
+                if (nextSortAction === "asc") {
+                    return a - b;
+                }
+                else {
+                    return b - a;
                 }
             }
         },
